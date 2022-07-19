@@ -11,6 +11,8 @@
 
 #pragma once
 
+#include "Logger.hpp"
+
 /**
  * @brief 메인 클래스입니다.
  * @details 터미널 파일 브라우저의 역활을 해주는 메인 클래스 정의입니다.
@@ -18,7 +20,10 @@
  */
 class DES_Explorer
 {
+private:
+  DES_Logger logger; /** 로거 클래스 */
 
 public:
-  DES_Explorer() {} /** 기본 생성자 */
+  DES_Explorer() {}                                        /** 기본 생성자 */
+  DES_Explorer(std::string log_path) : logger(log_path) {} /** 로그 경로 지정 */
 };
