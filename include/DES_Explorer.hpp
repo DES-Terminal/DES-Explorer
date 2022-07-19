@@ -13,6 +13,9 @@
 
 #include "Logger.hpp"
 
+#include <filesystem>
+#include <string>
+
 /**
  * @brief 메인 클래스입니다.
  * @details 터미널 파일 브라우저의 역활을 해주는 메인 클래스 정의입니다.
@@ -23,7 +26,17 @@ class DES_Explorer
 private:
   DES_Logger logger; /** 로거 클래스 */
 
+protected:
+  std::filesystem::path current_path; /** 현재 경로 */
+
 public:
-  DES_Explorer() {}                                        /** 기본 생성자 */
-  DES_Explorer(std::string log_path) : logger(log_path) {} /** 로그 경로 지정 */
+  DES_Explorer() : current_path("~") {}                                                                    /** 기본 생성자 */
+  DES_Explorer(std::string open_path, std::string log_path) : current_path(open_path), logger(log_path) {} /** 로그 경로 지정 */
+
+  /**
+   * @brief 현재 탐색기의 경로를 반환한다.
+   *
+   * @return std::string 현재 탐색기의 경로
+   */
+  std::string get_current_path();
 };
