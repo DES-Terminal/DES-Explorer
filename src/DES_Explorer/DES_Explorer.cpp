@@ -10,7 +10,7 @@
  * @details 소스파일은 기능별로 분리하는것이 좋습니다.
  */
 
-#include "include/DES_Explorer.hpp"
+#include "DES_Explorer.hpp"
 
 std::string DES_Explorer::get_current_path()
 {
