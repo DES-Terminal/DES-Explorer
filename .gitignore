@@ -1,3 +1,8 @@
+### OUTPUT ###
+# Cmake Output Files
+DES-Explorer.out
+
+
 ### C++ ###
 # Prerequisites
 *.d
