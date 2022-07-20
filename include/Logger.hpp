@@ -29,15 +29,21 @@ private:
 
   const time_t startTime; /** 시작시간 */
 
-public:
-  DES_Logger() : startTime(time(NULL))
+  /**
+   * @brief 로그클래스의 기본값 경로를 설정하기 위한 함수
+   *
+   * @return std::string Logs/DES_현재시간.log 형태로 반환된다.
+   */
+  std::string getDefaultLogPath()
   {
     std::string log_file_name = "Logs/DES_";
     log_file_name += std::to_string(startTime);
     log_file_name += ".log";
-
-    DES_Logger(log_file_name);
+    return log_file_name;
   }
+
+public:
+  DES_Logger() : DES_Logger(getDefaultLogPath()) {}
   DES_Logger(std::string path) : log_path(path), startTime(time(NULL))
   {
     log_file.open(log_path);
