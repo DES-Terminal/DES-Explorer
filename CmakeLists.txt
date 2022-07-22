@@ -6,7 +6,21 @@ project(
   DESCRIPTION "DES 파일 탐색기"
   LANGUAGES CXX)
 
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
+
+set(GLOB_RECURSE_EXCLUDE_PATHS "CMakeFiles")
+
 file(GLOB_RECURSE SOURCES CONFIGURE_DEPENDS ${CMAKE_CURRENT_SOURCE_DIR}/src/*.cpp)
+
+foreach(SOURCE ${SOURCES})
+  foreach(EXCLUDE_PATH ${GLOB_RECURSE_EXCLUDE_PATHS})
+    string(FIND ${SOURCE} ${EXCLUDE_PATH} FOUND_PATH)
+    if(NOT ${FOUND_PATH} EQUAL -1)
+      list(REMOVE_ITEM SOURCES ${SOURCE})
+    endif()
+  endforeach(EXCLUDE_PATH)
+endforeach(SOURCE)
+
 
 add_executable (
   DES-Explorer.out
