@@ -8,6 +8,8 @@
  * @copyright Copyright (c) 2022
  */
 
+#pragma once
+
 #include "DES_Errors.hpp"
 #include "DES_types.hpp"
 
