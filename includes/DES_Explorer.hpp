@@ -15,8 +15,6 @@
 #include "DES_Types.hpp"
 #include "Logger.hpp"
 
-#include <string>
-
 /**
  * @brief 메인 클래스입니다.
  * @details 터미널 파일 브라우저의 역활을 해주는 메인 클래스 정의입니다.
