@@ -13,7 +13,6 @@
 
 #include "Logger.hpp"
 
-#include <filesystem>
 #include <string>
 
 /**
