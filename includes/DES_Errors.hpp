@@ -9,6 +9,8 @@
  * @note 표준 예외 클래스와의 일관성을 위해 클래스 이름은 소문자, snake_case로 작성한다.
  */
 
+#pragma once
+
 #include <stdexcept>
 
 namespace DES
