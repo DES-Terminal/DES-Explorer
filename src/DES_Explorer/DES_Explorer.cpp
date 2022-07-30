@@ -12,7 +12,7 @@
 
 #include "DES_Explorer.hpp"
 
-DES::Types::String DES_Explorer::get_current_path()
+DES::Types::String DES_Explorer::getCurrentPath()
 {
-  return current_path.string(); /** 현재 탐색기의 경로를 반환한다. */
+  return currentPath.string(); /** 현재 탐색기의 경로를 반환한다. */
 }

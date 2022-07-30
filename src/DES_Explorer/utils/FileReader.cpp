@@ -10,22 +10,22 @@
 
 #include "utils/FileReader.hpp"
 
-DES::Types::RawData DES::Functions::Read(DES::Types::Path Path, DES::Types::Size index, DES::Types::Size length)
+DES::Types::RawData DES::Functions::read(DES::Types::Path path, DES::Types::Size index, DES::Types::Size length)
 {
-  DES::Types::RawData RawData(length);        /** @brief 데이터를 저장할 객체 생성 및 길이 초기화 */
-  std::ifstream File(Path, std::ios::binary); /** @brief 파일 읽기 */
+  DES::Types::RawData rawData(length);        /** @brief 데이터를 저장할 객체 생성 및 길이 초기화 */
+  std::ifstream file(path, std::ios::binary); /** @brief 파일 읽기 */
 
   /**
    * @brief 파일 존재 체크
    */
-  if (!File.is_open())
+  if (!file.is_open())
   {
     throw DES::Errors::file_not_found();
   }
 
-  File.seekg(index);                 /** @details 해당 위치로 이동 */
-  File.read(RawData.data(), length); /** @details 파일 읽기 */
-  File.close();                      /** @details 파일 닫기 */
+  file.seekg(index);                 /** @details 해당 위치로 이동 */
+  file.read(rawData.data(), length); /** @details 파일 읽기 */
+  file.close();                      /** @details 파일 닫기 */
 
-  return RawData;
+  return rawData;
 }
