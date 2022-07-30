@@ -22,8 +22,8 @@
 class DES_Logger
 {
 private:
-  const std::string log_path; /** 로그파일 경로 */
-  std::ofstream log_file;     /** 로그파일 스트림 */
+  const std::string logPath; /** 로그파일 경로 */
+  std::ofstream logFile;     /** 로그파일 스트림 */
 
   std::ostream &console = std::cout; /** 콘솔출력 */
 
@@ -36,17 +36,17 @@ private:
    */
   std::string getDefaultLogPath()
   {
-    std::string log_file_name = "Logs/DES_";
-    log_file_name += std::to_string(startTime);
-    log_file_name += ".log";
-    return log_file_name;
+    std::string logFileName = "Logs/DES_";
+    logFileName += std::to_string(startTime);
+    logFileName += ".log";
+    return logFileName;
   }
 
 public:
   DES_Logger() : DES_Logger(getDefaultLogPath()) {}
-  DES_Logger(std::string path) : log_path(path), startTime(time(NULL))
+  DES_Logger(std::string path) : logPath(path), startTime(time(NULL))
   {
-    log_file.open(log_path);
+    logFile.open(logPath);
     log("Logger started.");
   }
 
@@ -54,7 +54,7 @@ public:
   {
     log("Logger stopped.");
     log("총 소요시간 : " + std::to_string(time(NULL) - startTime));
-    log_file.close();
+    logFile.close();
   }
 
   /**
@@ -65,7 +65,7 @@ public:
    */
   void log(std::string message)
   {
-    log_file << message << std::endl;
+    logFile << message << std::endl;
     console << message << std::endl;
   }
 };

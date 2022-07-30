@@ -11,7 +11,7 @@
 #pragma once
 
 #include "DES_Errors.hpp"
-#include "DES_types.hpp"
+#include "DES_Types.hpp"
 
 #include <fstream>
 
@@ -25,11 +25,11 @@ namespace DES
     /**
      * @brief 특정 위치로부터 파일을 읽어오는 함수
      *
-     * @param Path 파일의 경로
+     * @param path 파일의 경로
      * @param index 읽을 위치의 시작점
      * @param length 읽을 글자 수
      * @return Types::RawData 읽어들인 데이터
      */
-    DES::Types::RawData Read(DES::Types::Path Path, DES::Types::Size index, DES::Types::Size length);
+    DES::Types::RawData read(DES::Types::Path path, DES::Types::Size index, DES::Types::Size length);
   }
 }

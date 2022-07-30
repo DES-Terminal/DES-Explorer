@@ -26,16 +26,16 @@ private:
   DES_Logger logger; /** 로거 클래스 */
 
 protected:
-  DES::Types::Path current_path; /** 현재 경로 */
+  DES::Types::Path currentPath; /** 현재 경로 */
 
 public:
-  DES_Explorer() : current_path("~") {}                                                                                  /** 기본 생성자 */
-  DES_Explorer(DES::Types::String open_path, DES::Types::String log_path) : current_path(open_path), logger(log_path) {} /** 로그 경로 지정 */
+  DES_Explorer() : currentPath("~") {}                                                                              /** 기본 생성자 */
+  DES_Explorer(DES::Types::String openPath, DES::Types::String logPath) : currentPath(openPath), logger(logPath) {} /** 로그 경로 지정 */
 
   /**
    * @brief 현재 탐색기의 경로를 반환한다.
    *
    * @return DES::Types::String 현재 탐색기의 경로
    */
-  DES::Types::String get_current_path();
+  DES::Types::String getCurrentPath();
 };
