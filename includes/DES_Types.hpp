@@ -8,7 +8,7 @@
  * @copyright Copyright (c) 2022
  */
 
-#pragma once;
+#pragma once
 
 #include <filesystem>
 #include <string>

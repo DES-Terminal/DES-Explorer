@@ -1,4 +1,4 @@
-#include "include/DES_Explorer.hpp"
+#include "DES_Explorer.hpp"
 
 int main(int argc, char **argv)
 {

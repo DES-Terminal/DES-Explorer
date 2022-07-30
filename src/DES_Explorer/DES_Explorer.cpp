@@ -10,9 +10,9 @@
  * @details 소스파일은 기능별로 분리하는것이 좋습니다.
  */
 
-#include "include/DES_Explorer.hpp"
+#include "DES_Explorer.hpp"
 
-std::string DES_Explorer::get_current_path()
+DES::Types::String DES_Explorer::get_current_path()
 {
   return current_path.string(); /** 현재 탐색기의 경로를 반환한다. */
 }
