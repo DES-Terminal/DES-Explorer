@@ -39,6 +39,8 @@ target_compile_features(DES-Explorer-DEBUG.out PRIVATE cxx_std_17)
 
 target_compile_options(DES-Explorer-DEBUG.out PUBLIC -Wall -g)
 
+target_link_libraries(DES-Explorer-DEBUG.out PUBLIC ncurses)
+
 #################################################
 #################################################
 #################################################
@@ -49,3 +51,5 @@ add_executable(DES-Explorer.out ${SOURCES})
 target_include_directories(DES-Explorer.out PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/includes)
 
 target_compile_features(DES-Explorer.out PRIVATE cxx_std_17)
+
+target_link_libraries(DES-Explorer.out PUBLIC ncurses)
