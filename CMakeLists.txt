@@ -33,10 +33,10 @@ endforeach(SOURCE)
 # 디버그파일
 add_executable(DES-Explorer-DEBUG.out ${SOURCES})
 
-# Windows 작업환경 구축
-if (WIN32)
 target_include_directories(DES-Explorer-DEBUG.out PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/includes)
 
+# Windows 작업환경 구축
+if (WIN32)
 target_include_directories(DES-Explorer-DEBUG.out PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/libs/ncurses)
 endif (WIN32)
 
@@ -58,9 +58,9 @@ target_link_libraries(DES-Explorer-DEBUG.out PUBLIC ncurses)
 # 릴리즈파일, 디버그파일 설정에서 -Wall -g 제거
 add_executable(DES-Explorer.out ${SOURCES})
 
-if (WIN32)
 target_include_directories(DES-Explorer.out PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/includes)
 
+if (WIN32)
 target_include_directories(DES-Explorer.out PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/libs/ncurses)
 endif (WIN32)
 
