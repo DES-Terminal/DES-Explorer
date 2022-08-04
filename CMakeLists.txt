@@ -26,6 +26,11 @@ foreach(SOURCE ${SOURCES})
   endforeach(EXCLUDE_PATH)
 endforeach(SOURCE)
 
+# Ncurses 라이브러리 패키지
+if (UNIX)
+find_package(Curses REQUIRED)
+endif (UNIX)
+
 #################################################
 #################################################
 #################################################
