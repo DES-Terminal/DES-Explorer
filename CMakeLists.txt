@@ -33,9 +33,17 @@ endforeach(SOURCE)
 # 디버그파일
 add_executable(DES-Explorer-DEBUG.out ${SOURCES})
 
+# Windows 작업환경 구축
+if (WIN32)
 target_include_directories(DES-Explorer-DEBUG.out PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/includes)
 
 target_include_directories(DES-Explorer-DEBUG.out PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/libs/ncurses)
+endif (WIN32)
+
+# Unix 작업환경 구축
+if (UNIX)
+target_include_directories(DES-Explorer-DEBUG.out PUBLIC ${CURSES_INCLUDE_DIR})
+endif (UNIX)
 
 target_compile_features(DES-Explorer-DEBUG.out PRIVATE cxx_std_17)
 
@@ -50,9 +58,16 @@ target_link_libraries(DES-Explorer-DEBUG.out PUBLIC ncurses)
 # 릴리즈파일, 디버그파일 설정에서 -Wall -g 제거
 add_executable(DES-Explorer.out ${SOURCES})
 
+if (WIN32)
 target_include_directories(DES-Explorer.out PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/includes)
 
 target_include_directories(DES-Explorer.out PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/libs/ncurses)
+endif (WIN32)
+
+# Unix 작업환경 구축
+if (UNIX)
+target_include_directories(DES-Explorer.out PUBLIC ${CURSES_INCLUDE_DIR})
+endif (UNIX)
 
 target_compile_features(DES-Explorer.out PRIVATE cxx_std_17)
 
