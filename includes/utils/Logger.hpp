@@ -34,7 +34,7 @@ private:
    *
    * @return std::string Logs/DES_현재시간.log 형태로 반환된다.
    */
-  std::string getDefaultLogPath()
+  std::string getDefaultLogPath() const noexcept
   {
     std::string log_file_name = "Logs/DES_";
     log_file_name += std::to_string(startTime);

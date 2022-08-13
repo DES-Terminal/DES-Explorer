@@ -33,6 +33,7 @@ public:
     : currentPath("~")
   {
   } /** 기본 생성자 */
+
   DES_Explorer(DES::Types::String openPath, DES::Types::String logPath)
     : logger(logPath)
     , currentPath(openPath)
@@ -44,5 +45,5 @@ public:
    *
    * @return DES::Types::String 현재 탐색기의 경로
    */
-  DES::Types::String getCurrentPath();
+  DES::Types::String getCurrentPath() const noexcept;
 };
