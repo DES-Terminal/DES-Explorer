@@ -30,7 +30,7 @@ protected:
 
 public:
   DES_Explorer() : currentPath("~") {}                                                                              /** 기본 생성자 */
-  DES_Explorer(DES::Types::String openPath, DES::Types::String logPath) : currentPath(openPath), logger(logPath) {} /** 로그 경로 지정 */
+  DES_Explorer(DES::Types::String openPath, DES::Types::String logPath) : logger(logPath), currentPath(openPath) {}  /** 로그 경로 지정 */
 
   /**
    * @brief 현재 탐색기의 경로를 반환한다.
