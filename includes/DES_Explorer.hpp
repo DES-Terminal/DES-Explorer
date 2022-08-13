@@ -34,7 +34,7 @@ public:
   {
   } /** 기본 생성자 */
 
-  DES_Explorer(DES::Types::String openPath, DES::Types::String logPath)
+  DES_Explorer(DES::Types::String const& openPath, DES::Types::String const& logPath)
     : logger(logPath)
     , currentPath(openPath)
   {
