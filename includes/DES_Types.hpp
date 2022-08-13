@@ -41,7 +41,7 @@ using Path = std::filesystem::path;
 
 /**
  * @brief 표준 문자열입니다.
- * @detials 클래스 타입으로 변경할 수 있게, 타입을 정의하였습니다.
+ * @details 클래스 타입으로 변경할 수 있게, 타입을 정의하였습니다.
  */
 using String = std::string;
 
