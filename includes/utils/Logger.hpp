@@ -44,7 +44,7 @@ private:
 
 public:
   DES_Logger() : DES_Logger(getDefaultLogPath()) {}
-  DES_Logger(std::string path) : log_path(path), startTime(time(NULL))
+  DES_Logger(std::string const &path) : log_path(path), startTime(time(NULL))
   {
     log_file.open(log_path);
     log("Logger started.");
@@ -63,7 +63,7 @@ public:
    *
    * @param message 출력할 메세지
    */
-  void log(std::string message)
+  void log(std::string const &message)
   {
     log_file << message << std::endl;
     console << message << std::endl;
