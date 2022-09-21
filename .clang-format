@@ -3,7 +3,6 @@ IndentWidth: 2
 ColumnLimit: 100 
 
 AlignAfterOpenBracket: Align
-AlignArrayOfStructures: Right
 AlignConsecutiveAssignments: Consecutive
 AlignConsecutiveAssignments: AcrossEmptyLines
 AlignConsecutiveAssignments: AcrossComments
@@ -20,4 +19,3 @@ AlignEscapedNewlines: Right
 AlignOperands: AlignAfterOperator
 
 AlignTrailingComments: true
-
