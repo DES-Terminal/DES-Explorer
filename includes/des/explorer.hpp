@@ -12,6 +12,7 @@
 #pragma once
 
 #include "des/errors.hpp"
+#include "des/interface/terminal.hpp"
 #include "des/types.hpp"
 #include "des/utils/folder_utils.hpp"
 #include "des/utils/logger.hpp"
@@ -25,7 +26,7 @@ namespace des {
 class Explorer
 {
 private:
-  Logger logger; /**< 로거 클래스 */
+  ::des::utils::Logger logger; /**< 로거 클래스 */
 
 protected:
   ::des::types::Path currentPath; /**< 현재 경로 */

@@ -14,6 +14,8 @@
 #include <iostream> // std::cout에 대해 출력하기 위해 포함하였다.
 #include <string>
 
+namespace des {
+namespace utils {
 /**
  * @brief 로거클래스
  * @details 로거클래스의 내용이 적기때문에 헤더파일 내부에 내용이 존재한다.
@@ -74,3 +76,5 @@ public:
     console << message << std::endl;
   }
 };
+}
+}
