@@ -23,5 +23,15 @@ class file_not_found : public std::exception
 public:
   const char* what() const noexcept override { return "File not found"; }
 };
+
+/**
+ * @brief 디렉토리가 아닙니다.
+ * @details 디렉토리 탐색을 할 때, 경로 대상이 디렉토리가 아닙니다.
+ */
+class not_a_directory : public std::exception
+{
+public:
+  const char* what() const noexcept override { return "Not a directory"; }
+};
 }
 }

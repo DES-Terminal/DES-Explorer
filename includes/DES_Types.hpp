@@ -45,5 +45,10 @@ using Path = std::filesystem::path;
  */
 using String = std::string;
 
+/**
+ * @brief 파일의 경로의 집합입니다.
+ * @details 검사 등을 이용해 나온 파일 경로들의 목록입니다.
+ */
+using PathList = std::vector<Path>;
 }
 }
