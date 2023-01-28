@@ -12,7 +12,8 @@
 
 #include "DES_Explorer.hpp"
 
-DES::Types::String DES_Explorer::getCurrentPath() const noexcept
+DES::Types::String
+DES_Explorer::getCurrentPath() const noexcept
 {
   return currentPath.string(); /** 현재 탐색기의 경로를 반환한다. */
 }

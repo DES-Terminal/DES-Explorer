@@ -1,0 +1,21 @@
+BasedOnStyle: Mozilla
+IndentWidth: 2
+ColumnLimit: 100 
+
+AlignAfterOpenBracket: Align
+AlignConsecutiveAssignments: Consecutive
+AlignConsecutiveAssignments: AcrossEmptyLines
+AlignConsecutiveAssignments: AcrossComments
+
+AlignConsecutiveMacros: AcrossEmptyLines
+AlignConsecutiveMacros: AcrossComments
+
+AlignConsecutiveDeclarations: Consecutive
+AlignConsecutiveDeclarations: AcrossEmptyLines
+AlignConsecutiveDeclarations: AcrossComments
+
+AlignEscapedNewlines: Right
+
+AlignOperands: AlignAfterOperator
+
+AlignTrailingComments: true

@@ -13,20 +13,15 @@
 
 #include <stdexcept>
 
-namespace DES
+namespace DES {
+namespace Errors {
+/**
+ * @brief 파일이 존재하지 않습니다.
+ */
+class file_not_found : public std::exception
 {
-  namespace Errors
-  {
-    /**
-     * @brief 파일이 존재하지 않습니다.
-     */
-    class file_not_found : public std::exception
-    {
-    public:
-      const char *what() const noexcept override
-      {
-        return "File not found";
-      }
-    };
-  }
+public:
+  const char* what() const noexcept override { return "File not found"; }
+};
+}
 }
