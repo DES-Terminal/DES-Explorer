@@ -9,7 +9,7 @@
         {
             "name": "base",
             "hidden": true,
-            "generator": "Unix Makefiles",
+            "generator": "Ninja",
             "binaryDir": "${sourceDir}/build/${presetName}",
             "cacheVariables": {
                 "CMAKE_C_COMPILER": "gcc",
@@ -17,43 +17,12 @@
             }
         },
         {
-            "name": "x64-debug",
-            "displayName": "x64 Debug",
+            "name": "x64",
+            "displayName": "x64 Build",
             "inherits": "base",
             "architecture": {
                 "value": "x64",
                 "strategy": "external"
-            },
-            "cacheVariables": {
-                "CMAKE_BUILD_TYPE": "Debug"
-            }
-        },
-        {
-            "name": "x64-release",
-            "displayName": "x64 Release",
-            "inherits": "x64-debug",
-            "cacheVariables": {
-                "CMAKE_BUILD_TYPE": "Release"
-            }
-        },
-        {
-            "name": "x86-debug",
-            "displayName": "x86 Debug",
-            "inherits": "base",
-            "architecture": {
-                "value": "x86",
-                "strategy": "external"
-            },
-            "cacheVariables": {
-                "CMAKE_BUILD_TYPE": "Debug"
-            }
-        },
-        {
-            "name": "x86-release",
-            "displayName": "x86 Release",
-            "inherits": "x86-debug",
-            "cacheVariables": {
-                "CMAKE_BUILD_TYPE": "Release"
             }
         }
     ]
