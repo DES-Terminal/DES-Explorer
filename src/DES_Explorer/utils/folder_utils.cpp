@@ -1,5 +1,5 @@
 /**
- * @file FolderUtils.cpp
+ * @file folder_utils.cpp
  * @author 정종민 (xhve00000@gmail.com)
  * @brief 디렉토리의 내용을 탐색하여 관련된 내용을 보여주는 기능입니다.
  * @version 0.1
@@ -8,7 +8,7 @@
  * @copyright Copyright (c) 2022
  */
 
-#include "utils/FolderUtils.hpp"
+#include "des/utils/folder_utils.hpp"
 
 des::types::PathList
 des::functions::ReadFileList(des::types::Path const& path)

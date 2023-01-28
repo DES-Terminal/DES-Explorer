@@ -1,5 +1,5 @@
 /**
- * @file DES_Errors.hpp
+ * @file errors.hpp
  * @author 정종민 (xhve00000@gmail.com)
  * @brief 오류 타입을 지정하기 위한 헤더파일입니다.
  * @version 0.1

@@ -1,5 +1,5 @@
 /**
- * @file Logger.hpp
+ * @file logger.hpp
  * @author 정종민 (xhve00000@gmail.com)
  * @brief 로그를 효율적으로 관리하기 위한 클래스가 정의되었습니다.
  * @version 0.1
@@ -11,15 +11,14 @@
 #pragma once
 
 #include <fstream>
+#include <iostream> // std::cout에 대해 출력하기 위해 포함하였다.
 #include <string>
-
-#include <iostream> /** std::cout에 대해 출력하기 위해 포함하였다. */
 
 /**
  * @brief 로거클래스
  * @details 로거클래스의 내용이 적기때문에 헤더파일 내부에 내용이 존재한다.
  */
-class DES_Logger
+class Logger
 {
 private:
   const std::string log_path; /** 로그파일 경로 */
@@ -43,12 +42,12 @@ private:
   }
 
 public:
-  DES_Logger()
-    : DES_Logger(getDefaultLogPath())
+  Logger()
+    : Logger(getDefaultLogPath())
   {
   }
 
-  DES_Logger(std::string const& path)
+  Logger(std::string const& path)
     : log_path(path)
     , startTime(time(NULL))
   {
@@ -56,7 +55,7 @@ public:
     log("Logger started.");
   }
 
-  ~DES_Logger()
+  ~Logger()
   {
     log("Logger stopped.");
     log("총 소요시간 : " + std::to_string(time(NULL) - startTime));

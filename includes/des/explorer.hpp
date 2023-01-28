@@ -1,5 +1,5 @@
 /**
- * @file DES_Explorer.hpp
+ * @file explorer.hpp
  * @author 정종민 (xhve00000@gmail.com)
  * @brief 메인 클래스 정의파일입니다.
  * @version 0.1
@@ -11,10 +11,10 @@
 
 #pragma once
 
-#include "DES_Errors.hpp"
-#include "DES_Types.hpp"
-#include "utils/FolderUtils.hpp"
-#include "utils/Logger.hpp"
+#include "des/errors.hpp"
+#include "des/types.hpp"
+#include "des/utils/folder_utils.hpp"
+#include "des/utils/logger.hpp"
 
 namespace des {
 /**
@@ -22,21 +22,21 @@ namespace des {
  * @details 터미널 파일 브라우저의 역활을 해주는 메인 클래스 정의입니다.
  * @todo 경로 관리자 클래스 및 로거가 필요합니다.
  */
-class DES_Explorer
+class Explorer
 {
 private:
-  DES_Logger logger; /**< 로거 클래스 */
+  Logger logger; /**< 로거 클래스 */
 
 protected:
   ::des::types::Path currentPath; /**< 현재 경로 */
 
 public:
-  DES_Explorer()
+  Explorer()
     : currentPath("~")
   {
   }
 
-  DES_Explorer(::des::types::String const& openPath, ::des::types::String const& logPath)
+  Explorer(::des::types::String const& openPath, ::des::types::String const& logPath)
     : logger(logPath)
     , currentPath(openPath)
   {

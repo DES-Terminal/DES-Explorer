@@ -1,5 +1,5 @@
 /**
- * @file FileReader.cpp
+ * @file file_reader.cpp
  * @author 정종민 (xhve00000@gmail.com)
  * @brief 파일을 읽어오는 함수의 소스파일입니다.
  * @version 0.1
@@ -8,7 +8,7 @@
  * @copyright Copyright (c) 2022
  */
 
-#include "utils/FileReader.hpp"
+#include "des/utils/file_reader.hpp"
 
 des::types::RawData
 des::functions::read(des::types::Path const& path,

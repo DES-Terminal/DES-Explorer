@@ -1,5 +1,5 @@
 /**
- * @file DES_Explorer.cpp
+ * @file explorer.cpp
  * @author 정종민 (xhve00000@gmail.com)
  * @brief 메인 클래스 소스파일입니다.
  * @version 0.1
@@ -10,10 +10,10 @@
  * @details 소스파일은 기능별로 분리하는것이 좋습니다.
  */
 
-#include "DES_Explorer.hpp"
+#include "des/explorer.hpp"
 
 des::types::String
-des::DES_Explorer::getCurrentPath() const noexcept
+des::Explorer::getCurrentPath() const noexcept
 {
   return currentPath.string();
 }

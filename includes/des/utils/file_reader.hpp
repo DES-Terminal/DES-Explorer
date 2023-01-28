@@ -1,5 +1,5 @@
 /**
- * @file FileReader.hpp
+ * @file file_reader.hpp
  * @author 정종민 (xhve00000@gmail.com)
  * @brief 파일을 읽어오는 함수들을 정의합니다.
  * @version 0.1
@@ -10,8 +10,8 @@
 
 #pragma once
 
-#include "DES_Errors.hpp"
-#include "DES_Types.hpp"
+#include "des/errors.hpp"
+#include "des/types.hpp"
 
 #include <fstream>
 

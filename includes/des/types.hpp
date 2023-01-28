@@ -1,5 +1,5 @@
 /**
- * @file DES_Types.hpp
+ * @file types.hpp
  * @author 정종민 (xhve00000@gmail.com)
  * @brief 파일의 자료형을 정의하는 헤더파일입니다.
  * @version 0.1
