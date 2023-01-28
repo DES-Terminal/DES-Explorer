@@ -11,8 +11,35 @@ project(
 # Include 경로 오류시, 간단하게 파악하기 위한, 컴파일 커멘드 출력 설정
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
+#################################################
+#################################################
+#################################################
+
+# 라이브러리 다운로드를 위한 스크립트 추가
+
+include(FetchContent)
+
+# ftxui 다운로드
+FetchContent_Declare(
+  ftxui
+  GIT_REPOSITORY https://github.com/ArthurSonzogni/FTXUI
+  GIT_TAG        v3.0.0
+)
+
+FetchContent_MakeAvailable(
+  ftxui
+)
+
+#################################################
+#################################################
+#################################################
+
 # 소스파일 설정
-file(GLOB_RECURSE SOURCES CONFIGURE_DEPENDS ${CMAKE_CURRENT_SOURCE_DIR}/src/*.cpp)
+file(
+  GLOB_RECURSE SOURCES
+  CONFIGURE_DEPENDS
+  ${CMAKE_CURRENT_SOURCE_DIR}/src/*.cpp
+)
 
 # 소스파일 설정중 RECURSE시, cmake에서 자동으로 만든 c파일이 경로에 포함되는 경우가 있어, 이를 해결하기 위한 제거루틴
 set(GLOB_RECURSE_EXCLUDE_PATHS "CMakeFiles")
@@ -26,54 +53,61 @@ foreach(SOURCE ${SOURCES})
   endforeach(EXCLUDE_PATH)
 endforeach(SOURCE)
 
-# Ncurses 라이브러리 패키지
-if (UNIX)
-find_package(Curses REQUIRED)
-endif (UNIX)
+# 헤더파일 설정
+include_directories(
+  ${CMAKE_CURRENT_SOURCE_DIR}/includes
+  ${ftxui_SOURCE_DIR}/include
+)
+
+# 라이브러리 추가
+link_libraries(
+  ftxui::screen
+  ftxui::dom
+  ftxui::component
+)
 
 #################################################
 #################################################
 #################################################
 
 # 디버그파일
-add_executable(DES-Explorer-DEBUG.out ${SOURCES})
+add_executable(
+  DES-Explorer-DEBUG
+  ${SOURCES}
+)
 
-target_include_directories(DES-Explorer-DEBUG.out PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/includes)
+target_compile_options(
+  DES-Explorer-DEBUG
+  PRIVATE
+  -Wall
+  -g
+  -O0
+)
 
-# Windows 작업환경 구축
-if (WIN32)
-target_include_directories(DES-Explorer-DEBUG.out PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/libs/ncurses)
-endif (WIN32)
-
-# Unix 작업환경 구축
-if (UNIX)
-target_include_directories(DES-Explorer-DEBUG.out PUBLIC ${CURSES_INCLUDE_DIR})
-endif (UNIX)
-
-target_compile_features(DES-Explorer-DEBUG.out PRIVATE cxx_std_17)
-
-target_compile_options(DES-Explorer-DEBUG.out PUBLIC -Wall -g)
-
-target_link_libraries(DES-Explorer-DEBUG.out PUBLIC ncurses)
+target_compile_features(
+  DES-Explorer-DEBUG
+  PRIVATE
+  cxx_std_17
+)
 
 #################################################
 #################################################
 #################################################
 
 # 릴리즈파일, 디버그파일 설정에서 -Wall -g 제거
-add_executable(DES-Explorer.out ${SOURCES})
+add_executable(
+  DES-Explorer
+  ${SOURCES}
+)
 
-target_include_directories(DES-Explorer.out PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/includes)
+target_compile_options(
+  DES-Explorer
+  PRIVATE
+  -O3
+)
 
-if (WIN32)
-target_include_directories(DES-Explorer.out PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/libs/ncurses)
-endif (WIN32)
-
-# Unix 작업환경 구축
-if (UNIX)
-target_include_directories(DES-Explorer.out PUBLIC ${CURSES_INCLUDE_DIR})
-endif (UNIX)
-
-target_compile_features(DES-Explorer.out PRIVATE cxx_std_17)
-
-target_link_libraries(DES-Explorer.out PUBLIC ncurses)
+target_compile_features(
+  DES-Explorer
+  PRIVATE
+  cxx_std_17
+)
