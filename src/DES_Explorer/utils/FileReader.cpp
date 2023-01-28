@@ -10,7 +10,7 @@
 
 #include "utils/FileReader.hpp"
 
-DES::Types::RawData DES::Functions::read(DES::Types::Path path, DES::Types::Size index, DES::Types::Size length)
+DES::Types::RawData DES::Functions::read(DES::Types::Path const &path, DES::Types::Size const &index, DES::Types::Size const &length)
 {
   DES::Types::RawData rawData(length);        /** @brief 데이터를 저장할 객체 생성 및 길이 초기화 */
   std::ifstream file(path, std::ios::binary); /** @brief 파일 읽기 */

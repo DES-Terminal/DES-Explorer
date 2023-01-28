@@ -28,8 +28,8 @@ namespace DES
      * @param path 파일의 경로
      * @param index 읽을 위치의 시작점
      * @param length 읽을 글자 수
-     * @return Types::RawData 읽어들인 데이터
+     * @return DES::Types::RawData 읽어들인 데이터
      */
-    DES::Types::RawData read(DES::Types::Path path, DES::Types::Size index, DES::Types::Size length);
+    DES::Types::RawData read(DES::Types::Path const &path, DES::Types::Size const &index, DES::Types::Size const &length);
   }
 }

@@ -34,7 +34,7 @@ private:
    *
    * @return std::string Logs/DES_현재시간.log 형태로 반환된다.
    */
-  std::string getDefaultLogPath()
+  std::string getDefaultLogPath() const noexcept
   {
     std::string log_file_name = "Logs/DES_";
     log_file_name += std::to_string(startTime);
@@ -44,7 +44,7 @@ private:
 
 public:
   DES_Logger() : DES_Logger(getDefaultLogPath()) {}
-  DES_Logger(std::string path) : log_path(path), startTime(time(NULL))
+  DES_Logger(std::string const &path) : log_path(path), startTime(time(NULL))
   {
     log_file.open(log_path);
     log("Logger started.");
@@ -63,7 +63,7 @@ public:
    *
    * @param message 출력할 메세지
    */
-  void log(std::string message)
+  void log(std::string const &message)
   {
     log_file << message << std::endl;
     console << message << std::endl;
