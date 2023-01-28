@@ -4,7 +4,7 @@
 
 ### OUTPUT ###
 # Cmake Output Files
-DES-Explorer.out
+/build
 
 ### CMake ###
 # Cmake Debug File of VSC extension

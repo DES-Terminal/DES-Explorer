@@ -1,0 +1,29 @@
+﻿{
+    "version": 2,
+    "cmakeMinimumRequired": {
+        "major": 3,
+        "minor": 20,
+        "patch": 0
+    },
+    "configurePresets": [
+        {
+            "name": "base",
+            "hidden": true,
+            "generator": "Ninja",
+            "binaryDir": "${sourceDir}/build/${presetName}",
+            "cacheVariables": {
+                "CMAKE_C_COMPILER": "gcc",
+                "CMAKE_CXX_COMPILER": "g++"
+            }
+        },
+        {
+            "name": "x64",
+            "displayName": "x64 Build",
+            "inherits": "base",
+            "architecture": {
+                "value": "x64",
+                "strategy": "external"
+            }
+        }
+    ]
+}
