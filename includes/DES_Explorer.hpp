@@ -13,8 +13,8 @@
 
 #include "DES_Errors.hpp"
 #include "DES_Types.hpp"
-#include "utils/Logger.hpp"
 #include "utils/FolderUtils.hpp"
+#include "utils/Logger.hpp"
 
 /**
  * @brief 메인 클래스입니다.
@@ -24,22 +24,22 @@
 class DES_Explorer
 {
 private:
-  DES_Logger logger; /** 로거 클래스 */
+  DES_Logger logger; /**< 로거 클래스 */
 
 protected:
-  DES::Types::Path currentPath; /** 현재 경로 */
+  DES::Types::Path currentPath; /**< 현재 경로 */
 
 public:
   DES_Explorer()
     : currentPath("~")
   {
-  } /** 기본 생성자 */
+  }
 
   DES_Explorer(DES::Types::String const& openPath, DES::Types::String const& logPath)
     : logger(logPath)
     , currentPath(openPath)
   {
-  } /** 로그 경로 지정 */
+  }
 
   /**
    * @brief 현재 탐색기의 경로를 반환한다.

@@ -15,19 +15,17 @@ DES::Functions::read(DES::Types::Path const& path,
                      DES::Types::Size const& index,
                      DES::Types::Size const& length)
 {
-  DES::Types::RawData rawData(length); /** @brief 데이터를 저장할 객체 생성 및 길이 초기화 */
-  std::ifstream file(path, std::ios::binary); /** @brief 파일 읽기 */
+  DES::Types::RawData rawData(length); /* 데이터를 저장할 객체 생성 및 길이 초기화 */
+  std::ifstream file(path, std::ios::binary); /* 파일 읽기 */
 
-  /**
-   * @brief 파일 존재 체크
-   */
+  /* 파일 존재 체크 */
   if (!file.is_open()) {
     throw DES::Errors::file_not_found();
   }
 
-  file.seekg(index);                 /** @details 해당 위치로 이동 */
-  file.read(rawData.data(), length); /** @details 파일 읽기 */
-  file.close();                      /** @details 파일 닫기 */
+  file.seekg(index);                 /* 해당 위치로 이동 */
+  file.read(rawData.data(), length); /* 파일 읽기 */
+  file.close();                      /* 파일 닫기 */
 
   return rawData;
 }

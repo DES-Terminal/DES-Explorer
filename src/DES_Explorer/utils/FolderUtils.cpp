@@ -10,10 +10,11 @@
 
 #include "utils/FolderUtils.hpp"
 
-DES::Types::PathList DES::Functions::ReadFileList(DES::Types::Path const &path)
+DES::Types::PathList
+DES::Functions::ReadFileList(DES::Types::Path const& path)
 {
-  if (!std::filesystem::is_directory(path)) /** @brief 탐색을 원하는 경로가 디렉토리인지 확인 */
-  {
+  /* 탐색을 원하는 경로가 디렉토리인지 확인 */
+  if (!std::filesystem::is_directory(path)) {
     throw DES::Errors::not_a_directory();
   }
 
@@ -21,49 +22,48 @@ DES::Types::PathList DES::Functions::ReadFileList(DES::Types::Path const &path)
 
   std::filesystem::directory_iterator iter(path);
 
-  for (auto &i : iter) /** @brief 디렉토리 내부 모든 데이터에 대해 배열에 추가 */
-  {
+  /* 디렉토리 내부 모든 데이터에 대해 배열에 추가 */
+  for (auto& i : iter) {
     result.push_back(i.path());
   }
 
   return result;
 }
 
-DES::Types::PathList DES::Functions::ReadOnlyFileList(DES::Types::Path const &path)
+DES::Types::PathList
+DES::Functions::ReadOnlyFileList(DES::Types::Path const& path)
 {
-  DES::Types::PathList filelist = ReadFileList(path); /* 오류는 내부에서 처리된다. */
+  DES::Types::PathList filelist = ReadFileList(path); // 오류는 내부에서 처리된다.
 
   DES::Types::PathList result;
 
-  for (auto &i : filelist) /** @brief 디렉토리 내부 모든 데이터에 대해 배열에 추가 */
-  {
-    if (std::filesystem::is_directory(i)) /* 디렉토리면 패스한다. */
-    {
+  /* 디렉토리 내부 모든 데이터에 대해 배열에 추가 */
+  for (auto& i : filelist) {
+    if (std::filesystem::is_directory(i)) {
+      // 디렉토리면 패스한다.
       continue;
-    }
-    else
-    {
-      result.push_back(i); /* 파일만이면 리스트에 추가한다. */
-    }
-  }
-
-  return result;
-}
-
-DES::Types::PathList DES::Functions::ReadOnlyDirectoryList(DES::Types::Path const &path)
-{
-  DES::Types::PathList filelist = ReadFileList(path); /* 오류는 내부에서 처리된다. */
-
-  DES::Types::PathList result;
-
-  for (auto &i : filelist) /** @brief 폴더 내부 모든 데이터에 대해 배열에 추가 */
-  {
-    if (std::filesystem::is_directory(i)) /* 디렉토리면 리스트에 추가한다. */
-    {
+    } else {
+      // 파일만이면 리스트에 추가한다.
       result.push_back(i);
     }
-    else
-    {
+  }
+
+  return result;
+}
+
+DES::Types::PathList
+DES::Functions::ReadOnlyDirectoryList(DES::Types::Path const& path)
+{
+  DES::Types::PathList filelist = ReadFileList(path); // 오류는 내부에서 처리된다.
+
+  DES::Types::PathList result;
+
+  /* 폴더 내부 모든 데이터에 대해 배열에 추가 */
+  for (auto& i : filelist) {
+    if (std::filesystem::is_directory(i)) {
+      // 디렉토리면 리스트에 추가한다.
+      result.push_back(i);
+    } else {
       continue;
     }
   }
@@ -71,14 +71,15 @@ DES::Types::PathList DES::Functions::ReadOnlyDirectoryList(DES::Types::Path cons
   return result;
 }
 
-DES::Types::PathList DES::Functions::ReadFilenameStartfrom(DES::Types::PathList const &pathlist, DES::Types::String const &prefix) noexcept
+DES::Types::PathList
+DES::Functions::ReadFilenameStartfrom(DES::Types::PathList const& pathlist,
+                                      DES::Types::String const&   prefix) noexcept
 {
   DES::Types::PathList result;
 
-  for (auto &i : pathlist)
-  {
-    if (i.filename().string().find(prefix) == 0) /* 파일 이름이 prefix로 시작되면 결과에 등록한다. */
-    {
+  /* 파일 이름이 prefix로 시작되면 결과에 등록한다. */
+  for (auto& i : pathlist) {
+    if (i.filename().string().find(prefix) == 0) {
       result.push_back(i);
     }
   }
