@@ -16,6 +16,7 @@
 #include "utils/FolderUtils.hpp"
 #include "utils/Logger.hpp"
 
+namespace des {
 /**
  * @brief 메인 클래스입니다.
  * @details 터미널 파일 브라우저의 역활을 해주는 메인 클래스 정의입니다.
@@ -27,7 +28,7 @@ private:
   DES_Logger logger; /**< 로거 클래스 */
 
 protected:
-  DES::Types::Path currentPath; /**< 현재 경로 */
+  ::des::types::Path currentPath; /**< 현재 경로 */
 
 public:
   DES_Explorer()
@@ -35,7 +36,7 @@ public:
   {
   }
 
-  DES_Explorer(DES::Types::String const& openPath, DES::Types::String const& logPath)
+  DES_Explorer(::des::types::String const& openPath, ::des::types::String const& logPath)
     : logger(logPath)
     , currentPath(openPath)
   {
@@ -44,7 +45,8 @@ public:
   /**
    * @brief 현재 탐색기의 경로를 반환한다.
    *
-   * @return DES::Types::String 현재 탐색기의 경로
+   * @return ::des::types::String 현재 탐색기의 경로
    */
-  DES::Types::String getCurrentPath() const noexcept;
+  ::des::types::String getCurrentPath() const noexcept;
 };
+}

@@ -72,12 +72,12 @@ link_libraries(
 
 # 디버그파일
 add_executable(
-  DES-Explorer-DEBUG
+  des-explorer-debug
   ${SOURCES}
 )
 
 target_compile_options(
-  DES-Explorer-DEBUG
+  des-explorer-debug
   PRIVATE
   -Wall
   -g
@@ -85,7 +85,7 @@ target_compile_options(
 )
 
 target_compile_features(
-  DES-Explorer-DEBUG
+  des-explorer-debug
   PRIVATE
   cxx_std_17
 )
@@ -96,18 +96,18 @@ target_compile_features(
 
 # 릴리즈파일, 디버그파일 설정에서 -Wall -g 제거
 add_executable(
-  DES-Explorer
+  des-explorer
   ${SOURCES}
 )
 
 target_compile_options(
-  DES-Explorer
+  des-explorer
   PRIVATE
   -O3
 )
 
 target_compile_features(
-  DES-Explorer
+  des-explorer
   PRIVATE
   cxx_std_17
 )

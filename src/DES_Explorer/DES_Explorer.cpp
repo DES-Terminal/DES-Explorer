@@ -12,8 +12,8 @@
 
 #include "DES_Explorer.hpp"
 
-DES::Types::String
-DES_Explorer::getCurrentPath() const noexcept
+des::types::String
+des::DES_Explorer::getCurrentPath() const noexcept
 {
   return currentPath.string();
 }

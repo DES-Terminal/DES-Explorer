@@ -10,15 +10,15 @@
 
 #include "utils/FolderUtils.hpp"
 
-DES::Types::PathList
-DES::Functions::ReadFileList(DES::Types::Path const& path)
+des::types::PathList
+des::functions::ReadFileList(des::types::Path const& path)
 {
   /* 탐색을 원하는 경로가 디렉토리인지 확인 */
   if (!std::filesystem::is_directory(path)) {
-    throw DES::Errors::not_a_directory();
+    throw des::errors::not_a_directory();
   }
 
-  DES::Types::PathList result;
+  des::types::PathList result;
 
   std::filesystem::directory_iterator iter(path);
 
@@ -30,12 +30,12 @@ DES::Functions::ReadFileList(DES::Types::Path const& path)
   return result;
 }
 
-DES::Types::PathList
-DES::Functions::ReadOnlyFileList(DES::Types::Path const& path)
+des::types::PathList
+des::functions::ReadOnlyFileList(des::types::Path const& path)
 {
-  DES::Types::PathList filelist = ReadFileList(path); // 오류는 내부에서 처리된다.
+  des::types::PathList filelist = ReadFileList(path); // 오류는 내부에서 처리된다.
 
-  DES::Types::PathList result;
+  des::types::PathList result;
 
   /* 디렉토리 내부 모든 데이터에 대해 배열에 추가 */
   for (auto& i : filelist) {
@@ -51,12 +51,12 @@ DES::Functions::ReadOnlyFileList(DES::Types::Path const& path)
   return result;
 }
 
-DES::Types::PathList
-DES::Functions::ReadOnlyDirectoryList(DES::Types::Path const& path)
+des::types::PathList
+des::functions::ReadOnlyDirectoryList(des::types::Path const& path)
 {
-  DES::Types::PathList filelist = ReadFileList(path); // 오류는 내부에서 처리된다.
+  des::types::PathList filelist = ReadFileList(path); // 오류는 내부에서 처리된다.
 
-  DES::Types::PathList result;
+  des::types::PathList result;
 
   /* 폴더 내부 모든 데이터에 대해 배열에 추가 */
   for (auto& i : filelist) {
@@ -71,11 +71,11 @@ DES::Functions::ReadOnlyDirectoryList(DES::Types::Path const& path)
   return result;
 }
 
-DES::Types::PathList
-DES::Functions::ReadFilenameStartfrom(DES::Types::PathList const& pathlist,
-                                      DES::Types::String const&   prefix) noexcept
+des::types::PathList
+des::functions::ReadFilenameStartfrom(des::types::PathList const& pathlist,
+                                      des::types::String const&   prefix) noexcept
 {
-  DES::Types::PathList result;
+  des::types::PathList result;
 
   /* 파일 이름이 prefix로 시작되면 결과에 등록한다. */
   for (auto& i : pathlist) {

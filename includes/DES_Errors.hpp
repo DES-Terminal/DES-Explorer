@@ -13,8 +13,8 @@
 
 #include <stdexcept>
 
-namespace DES {
-namespace Errors {
+namespace des {
+namespace errors {
 /**
  * @brief 파일이 존재하지 않습니다.
  */

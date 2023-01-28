@@ -14,13 +14,13 @@
 #include <string>
 #include <vector>
 
-namespace DES {
+namespace des {
 /**
  * @brief 파일의 자료형을 묶는 네임스페이스입니다. 타입을 추후에 수정될 때를 대비하여
  * 정의하였습니다.
- * @note Types::RawData_t처럼 사용됩니다.
+ * @note types::RawData_t처럼 사용됩니다.
  */
-namespace Types {
+namespace types {
 
 /**
  * @brief 읽어온 파일의 원본 데이터가 담기는 배열입니다.
